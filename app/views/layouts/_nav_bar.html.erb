@@ -1,0 +1,31 @@
+<nav class="navbar navbar-light bg-white mt-3">
+  <div class="container-fluid">
+    <!-- <div id="notifications">
+    </div> -->
+    <%= link_to root_path, class: "navbar-brand" do %>
+      <i class="bi bi-house-door-fill bi-2x me-2"></i>Funny Movies
+    <% end %>
+
+    <% if user_signed_in? %>
+      <div class="d-flex justify-content-center">
+        <div class="text-center align-text">Welcome <%= current_user.email %></div>
+        <%= link_to "Share a movie", shares_path, class: "btn btn-outline-success me-2 ms-2" %>
+        <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-outline-success" %>
+
+      </div>
+    <% else %>
+      <%= form_for(:user, url: session_path(:user), html: { class: "d-flex" }) do |f| %>
+        <%= f.email_field :email, class: "form-control me-2", placeholder: "Email", aria: { label: "Search" } %>
+        <%= f.password_field :password, class: "form-control me-2", placeholder: "Password", aria: { label: "Search" } %>
+        <%= f.submit "Login / Register", class: "btn btn-outline-success w-100" %>
+      <% end %>
+    <% end %>
+    
+  </div>
+</nav>
+<hr />
+
+<div class="container-fluid w-75 d-none" id="post-alert">
+  <div class="alert alert-primary" role="alert" id="post-alert-des">
+  </div>
+</div>

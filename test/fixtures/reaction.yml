@@ -1,0 +1,15 @@
+# File: test/fixtures/reactions.yml
+
+reaction1:
+  user: one # Reference to a user fixture
+  movie: one # Reference to a movie fixture
+  status: like
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>
+
+reaction2:
+  user: two # Reference to another user fixture
+  movie: two # Reference to another movie fixture
+  status: dislike
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>

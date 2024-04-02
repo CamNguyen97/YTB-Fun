@@ -10,7 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_28_055013) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_03_154043) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "movies", force: :cascade do |t|
+    t.string "url"
+    t.string "title"
+    t.bigint "shared_by_id"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["shared_by_id"], name: "index_movies_on_shared_by_id"
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.integer "recipient_id"
+    t.string "action"
+    t.string "notifiable_type"
+    t.integer "notifiable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_notifications_on_user_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.text "body"
@@ -18,4 +42,30 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_28_055013) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "reactions", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "movie_id"
+    t.boolean "status", default: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["movie_id"], name: "index_reactions_on_movie_id"
+    t.index ["user_id"], name: "index_reactions_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  add_foreign_key "movies", "users", column: "shared_by_id"
+  add_foreign_key "notifications", "users"
+  add_foreign_key "reactions", "movies"
+  add_foreign_key "reactions", "users"
 end

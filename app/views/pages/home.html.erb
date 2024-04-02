@@ -1,0 +1,5 @@
+<% @movies.each_with_index do |value, index| %>
+  <div class="<%= 'mt-5' if index > 0 %>">
+    <%= render 'item', movie: value %>
+  </div>
+<% end %>

@@ -1,0 +1,17 @@
+# File: test/fixtures/movies.yml
+
+one:
+  url: "https://www.youtube.com/watch?v=VIDEO_ID_1"
+  title: "Example Title 1"
+  shared_by: one_user
+  description: "Description of Example Movie 1"
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>
+
+two:
+  url: "https://www.youtube.com/watch?v=VIDEO_ID_2"
+  title: "Example Title 2"
+  shared_by: two_user
+  description: "Description of Example Movie 2"
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>

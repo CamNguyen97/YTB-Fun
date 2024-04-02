@@ -1,0 +1,24 @@
+<div class="w-50 m-auto">
+  <fieldset class="reset">
+    <legend class="reset">Share a Youtube movie</legend>
+    <div class="row mb-3 mt-5">
+      <%= form_with(url: shares_path, method: "post", local: false, html: { id: "youtubeForm" }) do |form| %>
+        <div class="row">
+          <%= form.label :url, "YouTube URL", class: "col-sm-3 col-form-label" %>
+          <div class="col-sm-9">
+            <%= form.text_field :url, class: "form-control", id: "youtubeUrl" %>
+            <div id="urlError" class="text-danger"></div> <!-- Error message placeholder -->
+          </div>
+        </div>
+
+        <div class="row mt-4">
+          <div class="col-sm-3">
+          </div>
+          <div class="col-sm-9">
+            <%= form.submit "Share", class: "btn btn-primary w-50" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </fieldset>
+</div>

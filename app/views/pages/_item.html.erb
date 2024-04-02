@@ -1,0 +1,30 @@
+<div class="w-50 m-auto">
+  <div class="row">
+    <div class="col-6">
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" src="<%= movie[:movies_url] %>" allowfullscreen></iframe>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="text-danger text-capitalize">
+        <%= movie[:movie_title] %>
+      </div>
+
+      <div>
+        Share by: <%= movie[:share_by] %>
+      </div>
+
+      <div>
+        89<i class="bi bi-hand-thumbs-up"></i>
+        <span class="ms-2">90<i class="bi bi-hand-thumbs-down"></i></span>
+      </div>
+
+      <div>
+        <div class="text-capitalize">Description:</div>
+        <div class="fw-bold">
+          <%= movie[:movie_des] %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

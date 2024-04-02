@@ -13,3 +13,24 @@
  *= require_tree .
  *= require_self
  */
+
+ fieldset, legend {
+  all: revert;
+}
+
+.reset {
+  all: revert;
+}
+
+.align-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.top-10px {
+  top: 10px !important
+}
+
+.start-70-percent {
+  left: 70% !important;
+}

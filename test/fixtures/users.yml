@@ -1,0 +1,19 @@
+# File: test/fixtures/models.yml
+
+one:
+  email: example1@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  reset_password_token: null
+  reset_password_sent_at: null
+  remember_created_at: null
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>
+
+two:
+  email: example2@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  reset_password_token: null
+  reset_password_sent_at: null
+  remember_created_at: null
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>
