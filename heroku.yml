@@ -18,8 +18,8 @@ setup:
     - plan: heroku-redis
       as: redis
 
-run:
-  web:
-    command: bundle exec rails server -p $PORT
-  worker:
-    command: bundle exec sidekiq -C config/sidekiq.yml
+# run:
+#   web:
+#     command: bundle exec rails server -p $PORT
+#   worker:
+#     command: bundle exec sidekiq -C config/sidekiq.yml
