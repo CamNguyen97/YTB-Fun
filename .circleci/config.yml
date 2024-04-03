@@ -24,9 +24,13 @@ jobs:
       - checkout
 
       - run:
+          name: Install Bundler
+          command: |
+            gem install bundler -v '2.4.13'
+
+      - run:
           name: Install dependencies
           command: |
-            gem install bundler -v '1.17.3'
             bundle install --path vendor/bundle
 
       - run:
