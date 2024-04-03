@@ -1,12 +1,13 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  # username: <%= ENV['POSTGRES_USER'] %>
-  # password: <%= ENV['POSTGRES_PASSWORD'] %>
-  # host: <%= ENV['DB_HOST'] %
-  username: 'camnguyen1'
-  password: '123123'
-  host: 'localhost'
+  username: <%= ENV['POSTGRES_USER'] %>
+  password: <%= ENV['POSTGRES_PASSWORD'] %>
+  host: <%= ENV['DB_HOST'] %>
+  # username: 'camnguyen1'
+  # password: '123123'
+  # host: 'localhost'
+  
 development:
   <<: *default
   database: test3

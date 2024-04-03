@@ -1,5 +1,24 @@
 build:
   docker:
     web: Dockerfile
+  config:
+    web: 
+      command: sh ./bin/docker-start.sh
+      ports:
+        - "3000:3000"
+      volumes:
+        - .:/app
+      tty: true
+      stdin_open: true
+
+addons:
+  - plan: heroku-postgresql
+    as: db
+  - plan: heroku-redis
+    as: redis
+
 run:
-  web: sh ./bin/docker-start.sh
+  - type: web
+    command: bundle exec rails server -p $PORT
+  - type: worker
+    command: bundle exec sidekiq -C config/sidekiq.yml
