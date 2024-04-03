@@ -10,6 +10,7 @@ build:
         - .:/app
       tty: true
       stdin_open: true
+
 setup:
   addons:
     - plan: heroku-postgresql
@@ -18,7 +19,7 @@ setup:
       as: redis
 
 run:
-  - type: web
+  web:
     command: bundle exec rails server -p $PORT
-  - type: worker
+  worker:
     command: bundle exec sidekiq -C config/sidekiq.yml
