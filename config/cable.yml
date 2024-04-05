@@ -8,5 +8,5 @@ test:
 
 production:
   adapter: redis
-  url: <%= ENV.fetch("REDISCLOUD_URL") { "redis://default:TgaimxAcKd5YC7RbN2J8I5mD5bji9KCQ@redis-13465.c9.us-east-1-2.ec2.cloud.redislabs.com:13465" } %>
+  url: <%= ENV.fetch("REDISCLOUD_URL") { "redis://localhost:6379/1" } %>
   channel_prefix: video_production
